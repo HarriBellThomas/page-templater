@@ -99,6 +99,10 @@ class PageTemplater {
                 // Replace existing value in cache
                 wp_cache_set( $cache_key, $templates, 'themes', 1800 );
 
+		add_filter( 'theme_page_templates', function( $page_templates ) use ( $templates ) {
+			return $templates;
+		});
+		
                 return $atts;
 
         } 
